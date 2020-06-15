@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" href="media/musicboxicon.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <title>♪♬MusicBox - Help</title>
+
+    <style>
+        body, html
+        {
+            background-color: darkslategray;
+            color: white;
+            text-align: center;
+            font: Arial;
+        }
+        .grid-container 
+        {
+            display: grid;
+            grid-template-columns: auto auto;
+            grid-gap: 10px;
+            padding: 10px;
+        }
+        .grid-container > div 
+        {
+            background-color: rgba(50, 50, 50, 0.8);
+            text-align: center;
+            padding: 20px 0;
+            font-size: 20px;
+        }
+        #main
+        {
+            color: white;
+            background-color: grey;
+        }
+        .row
+        {
+            padding: 5px;
+        }
+        li:hover
+        {
+            background-color: darkgray;
+        }
+        ul
+        {
+            list-style: none;
+        }
+        #list-group-item
+        {
+            color: black;
+        }
+        li
+        {
+            display: grid;
+            font-size: 28px;
+            color: black;
+        }
+        button
+        {
+            padding-right: 5%;
+            color: black;
+            width: 150px;
+        }
+    </style>
+</head>
+
+<body>
+
+<script>
+    function populateNotation()
+    {
+        document.getElementById("descriptionarea").innerHTML = ""
+                + "<h1>Notation</h1>"
+                + "Musical notation:<br></br>"
+                + "<img src='media/piano.png' style='float: center;'></img><br></br>"
+                + "C D E&nbsp;&nbsp;F G A B<br></br>"
+                + "<br></br>"
+                + "Notes in music have a name (the first 7 letters of the alphabet)<br></br>"
+                + "And an octave (usually a number 0 thru 8, though there are variations of how octaves are notated)<br></br>"
+                + "<br></br>"
+                + "c4 is the note C, in the 4th octave<br></br>"
+                + "eb2 is the note E flat, in the 2nd octave<br></br>"
+                + "To play a semi-tone, a note between 2 notes or a halfstep, use a flat symbol 'b'<br></br>"
+                + "Not to confuse you with the letter B, though you can play B flat with: bb<br></br>"
+                + "There are no sharps in this program because the set of piano .mp3 sounds didn't come with them<br></br>"
+                + "and I'm too lazy to add them";
+    }
+    function populateControls()
+    {
+        document.getElementById("descriptionarea").innerHTML = ""
+                + "<div style='color:white'><button class='btn btn-info'>Play</button> </div>"
+                + "<div>Start moving the balls                                         </div>"
+
+                + "<div style='color:white;'><button class='btn btn-info'>Edit</button></div>"
+                + "<div>Return to editor mode                                          </div>"
+
+                + "<div><button class='btn btn-danger'>Delete</button></div>"
+                + "<div>Delete selected object</div>"
+
+                + "<div><button class='btn btn-success'>Modify</button></div>"
+                + "<div>Apply changes to the selected object</div>"
+
+                + "<div><h4>Object Info</h4></div>"
+                + "<div>Information about a selected object<br></br>Expands when an object is selected</div>"
+
+                + "<div>Arrow keys                                                     </div>"
+                + "<div>Camera movement                                                </div>"
+
+                + "<div style='color:white'><button class='btn'>MusicBox</button>      </div>"
+                + "<div>Add a music box                                                </div>"
+
+                + "<div style='color:white'><button class='btn'>Ball</button>          </div>"
+                + "<div>Add a ball                                                     </div>"
+
+                + "<div><button class='btn' style='width: 20px;'>+</button><button class='btn' style='width: 20px;'>-</button></div>"
+                + "<div>Tighten grid lines for more precise block placement</div>"
+
+                + "<div><button class='btn btn-info'>Save</button></div>"
+                + "<div>Save your level into text format</div>"
+
+                + "<div><button class='btn btn-info'>Load</button></div>"
+                + "<div>Load your level from data input to the text box</div>"
+
+                + "<div style='padding: 5px;'><textarea class='form-control' rows='5' cols='4'>Level Data</textarea></div>"
+                + "<div>Area level data is loaded and saved into this text box</div>"
+                
+                + "<div>Mouse Click</div>"
+                + "<div>Select/Drag object";
+    }
+    function populateHotkeys()
+    {
+        document.getElementById("descriptionarea").innerHTML = ""
+                + "<div>C                                                               </div>"
+                + "<div>Copy selected object                                            </div>"
+
+                + "<div>Del                                                             </div>"
+                + "<div>Delete selected object                                          </div>"
+
+                + "<div>M                                                               </div>"
+                + "<div>Select MusicBox</span>                                          </div>"
+
+                + "<div>P                                                               </div>"
+                + "<div>Select Ball Spawner                                             </div>"
+
+                + "<div>W                                                               </div>"
+                + "<div>Increase the pitch of the selected music box                    </div>"
+
+                + "<div>S                                                               </div>"
+                + "<div>Dncrease the pitch of the selected music box                    </div>";
+    }
+    function populateSamples()
+    {
+        document.getElementById("descriptionarea").innerHTML = ""
+                + "<div style='width:100%;height:200px;position:relative;padding-bottom:58.111%;'><iframe src='https://streamable.com/s/sm02p/crqisq' frameborder='0' width='100%' height='100%' allowfullscreen style='width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden;'></iframe></div>"
+                + "<div>Bach Trio Sonata in G Major (BWV 530-1)</div>"
+                + "<div style='width:100%;height:200px;position:relative;padding-bottom:55.425%;'><iframe src='https://streamable.com/s/n5yto/cqpjl' frameborder='0' width='100%' height='100%' allowfullscreen style='width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden;'></iframe></div>"
+                + "<div>Bach Prelude in C Major (Well Tempered Clavier BWV 846)</div>";
+    }
+</script>
+
+<header>
+    <a href="/"><button class="btn btn-info" style="display:flex; float:right;padding: 10px;">Back to ♪♬MusicBox</button></a>
+    <h1><img src="media/musicboxicon.png" style="padding: 5px;"></img>MusicBox</h1>
+    <h5>by Michael Wilkie</h5>
+    <marquee style="color: cyan;">♪♬MusicBox</marquee>
+    <hr></hr>
+</header>
+<div class="container-fluid" id="main">
+    <div class="row">
+        <br></br>
+        <div class="col-sm-4" id="linkarea">
+            <ul class="list-group" style="width: 100%">
+                <li class="list-group-item" style="text-align: center" onclick="populateNotation()"><h4>Music Notation</h4></li>
+                <li class="list-group-item" style="text-align: center" onclick="populateControls()"><h4>Controls</h4></li>
+                <li class="list-group-item" style="text-align: center" onclick="populateHotkeys()" ><h4>Hotkeys </hv></li>
+                <li class="list-group-item" style="text-align: center" onclick="populateSamples()" ><h4>Samples </hv></li>
+            </ul>
+        </div>
+        <div class="col-sm-6">
+            <div class="grid-container" id="descriptionarea">
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" href="media/musicboxicon.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+    <script src="https://code.createjs.com/soundjs-0.6.2.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <title>♪♬MusicBox</title>
+
+    <style>
+        body, html
+        {
+            background-color: darkslategray;
+        }
+        .list-group-item
+        {
+            padding: 5px 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        // https://www.createjs.com/docs/soundjs/classes/Sound.html
+        function initCreateJS() 
+        {
+            if (!createjs.Sound.initializeDefaultPlugins()) { return; }
+
+            createjs.Sound.addEventListener("fileload", loadHandler);
+            //createjs.Sound.registerSounds(piano, PIANO_SRC);
+            initializeSounds();
+            createjs.Sound.alternateExtensions = ["mp3"];
+        }
+    </script>
+    <script src="src/tree.js"         ></script>
+    <script src="src/musicbox_func.js"></script>
+    <script src="src/entity.js"       ></script>
+    <script src="src/puck.js"         ></script>
+    <script src="src/wall.js"         ></script>
+    <script src="src/musicbox.js"     ></script>
+    <script src="src/puckspawner.js"  ></script>
+    <script src="src/camera.js"       ></script>
+    <script src="src/level.js"        ></script>
+
+<div class="container" style="padding: 5px;">
+    <div class="row" style="display: flex;">
+        <div class-"col-lg-2" style="">
+            <ul class="list-group" style="width: 100%">
+                <button class="btn btn-block btn-info" id="modebutton" onclick="toggleplay()" ontouchstart="toggleplay()">Play</button>
+                <!--<li class="list-group-item" style="text-align: center">Objects</li>-->
+
+                <li class="list-group-item">
+                    <button class="btn btn-block" id="musicboxbutton" onclick="selectMusicBox()" ontouchstart="selectMusicBox()">MusicBox</button>
+                </li>
+                <li class="list-group-item">
+                    <button class="btn btn-block" id="ballbutton" onclick="selectBall()" ontouchstart="selectBall()">Ball</button>
+                </li>
+                <li class="list-group-item">
+                    <button class="btn btn-block btn-info" id="copybutton" onclick="copySelection()" ontouchstart="copySelection()">Copy</button>
+                </li>
+                <li class="list-group-item">
+                    <button class="btn btn-block btn-danger" id="deletebutton" onclick="deleteSelection()" ontouchstart="deleteSelection()">Delete</button>
+                </li>
+            </ul>
+            <ul class="list-group" id="objinfo" style="width: 100%">
+                <li class="list-group-item" style="text-align: center"><h4>Object Info</h4></li>
+            </ul>
+        </div>
+        <div class="col-lg-12">
+            <canvas id="myCanvas" crossOrigin="anonymous" width="1000" height="600">
+                Canvas not supported by your browser
+            </canvas>
+            <!--style="display: flex;margin: 0 auto;border: 3px solid black;-->
+            <div style="color:white;text-align: center">
+                <h3>MusicBox by Michael Wilkie, a 2D music tiling program.</h3>
+                <h2><a href="about.html" style="color: lightblue;"><u>How to play</u></a></h2>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <ul class="list-group" style="width: 100%">
+                <li class="list-group-item" style="text-align: center"><h4>Grid Scale</h4></li>
+                <li class="list-group-item" style="text-align: center">
+                    <div class="row">
+                        <div class="column">
+                            <h3><span id="gridlabel" style="display: block; width: 100%;padding: 5px;" class="label label-default">32</span></h3>
+                        </div>
+                        <div class="column">
+                            <button class="btn" onclick="biggerGrid()">+</button>
+                            <button class="btn" onclick="smallerGrid()">-</button>                            
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item" style="text-align: center">
+                    <button class="btn btn-block btn-danger" onclick="deleteAll()">Delete All</button>
+                </li>
+                <li class="list-group-item" style="text-align: center">
+                    <button class="btn btn-block btn-info" onclick="save()">Save</button>
+                    <textarea class="form-control" id="leveldata_textarea" rows="5" cols="4">Level Data</textarea>
+                    <button class="btn btn-block btn-info" onclick="load()">Load</button>
+                    <button class="btn btn-block btn-success" id="gravitybutton" onclick="toggleGravity()">Gravity</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
